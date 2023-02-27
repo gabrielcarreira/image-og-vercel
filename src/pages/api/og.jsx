@@ -11,7 +11,7 @@ export default function og(req) {
     (
       <div
         style={{
-          background: 'white',
+          background: '#121212',
           width: '100%',
           height: '100%',
           display: 'flex',
@@ -27,9 +27,39 @@ export default function og(req) {
           height="256px"
           src={`https://github.com/${username}.png`}
           alt="logo"
-          style={{ borderRadius: '128px' }}
+          style={{
+            borderRadius: '128px',
+            backgroundColor: '#00c056',
+            padding: '10px'
+          }}
         />
-        <p>@{username}</p>
+        <p style={{ color: 'white' }}>@{username}</p>
+        <div
+          style={{
+            width: '250px',
+            height: '250px',
+            backgroundColor: '#00c056',
+            position: 'absolute',
+            left: '650px',
+            top: '250px',
+            borderRadius: '200px',
+            filter: 'blur(50px)',
+            opacity: 0.6
+          }}
+        />
+        <div
+          style={{
+            width: '200px',
+            height: '200px',
+            backgroundColor: '#00c056',
+            position: 'absolute',
+            left: '-100px',
+            top: '-100px',
+            borderRadius: '100px',
+            filter: 'blur(50px)',
+            opacity: 0.6
+          }}
+        />
       </div>
     ),
     {
