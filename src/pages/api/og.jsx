@@ -1,26 +1,40 @@
-// pages/api/og.jsx
-
-import { ImageResponse } from "@vercel/og";
+import { ImageResponse } from '@vercel/og'
 
 export const config = {
-  runtime: "experimental-edge",
-};
+  runtime: 'edge'
+}
 
-export default function og() {
+export default function og(req) {
+  const { searchParams } = new URL(req.url)
+  const username = searchParams.get('username')
   return new ImageResponse(
     (
       <div
         style={{
-          display: "flex",
-          fontSize: 128,
-          background: "white",
-          width: "100%",
-          height: "100%",
-          paddingTop: "100px",
+          background: 'white',
+          width: '100%',
+          height: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          textAlign: 'center',
+          alignItems: 'center',
+          justifyContent: 'center'
         }}
       >
-        Hello, World!
+        {/* eslint-disable-next-line @next/next/no-img-element*/}
+        <img
+          width="256px"
+          height="256px"
+          src={`https://github.com/${username}.png`}
+          alt="logo"
+          style={{ borderRadius: '128px' }}
+        />
+        <p>@{username}</p>
       </div>
-    )
-  );
+    ),
+    {
+      width: 800,
+      height: 400
+    }
+  )
 }
